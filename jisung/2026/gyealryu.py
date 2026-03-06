@@ -21,6 +21,7 @@ files = [f for f in folder.iterdir() if f.is_file()]
 for f in files:
     mtime = os.path.getmtime(f)
     date = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
+    print(date)
 
 year = datetime.fromtimestamp(mtime).strftime("%Y")
 
@@ -30,6 +31,3 @@ for f in files:
     
     year_folder = folder / year  # 년도 폴더 경로
     os.makedirs(year_folder, exist_ok=True)  # 폴더 없으면 생성
-    shutil.move(str(f), str(year_folder / f.name))  # 파일 이동
-    
-print("정리가 완료되었습니다.")
