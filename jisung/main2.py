@@ -22,7 +22,6 @@ def main2():
       }
 
         files = [f for f in folder.iterdir() if f.is_file()]
-        
 
         for f in files:
             category = extension_map.get(f.suffix, "기타")
