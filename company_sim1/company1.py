@@ -22,52 +22,53 @@ class Company:
         self.loan = 0
         self.loan_interest = 0.05
 
+#고용
     def hire(self, employee):
         self.employees.append(employee)
         self.cash -= employee.salary
-
+#해고
     def fire(self, employee):
         self.employees.remove(employee)
-
+#전체 급여 합산
     def get_total_salary(self):
         total = 0
         for employee in self.employees:
             total += employee.salary
         return total
-
+#대출 실행
     def take_loan(self, amount):
         if self.loan + amount <= self.max_loan:
             self.cash += amount
             self.loan += amount
         else:
             print("대출할 수 없습니다. 사유:한도 초과")
-
+#대출 상환
     def repay_loan(self, amount):
         if amount <= self.loan and amount <= self.cash:
             self.cash -= amount
             self.loan -= amount
         else:
             print("상환할 수 없습니다.")
-
+#이자 계산 및 차감
     def calculate_interest(self):
         if self.loan > 0:
             interest = self.loan * self.loan_interest
             self.cash -= interest
-
+#파산 여부 반환
     def is_bankrupt(self):
         if self.reputation <= 0:
             return True
         if self.cash <= 0 and self.loan >= self.max_loan:
             return True
         return False
-
+#게임오버 판단
     def check_game_over(self):
         if self.reputation <= 0:
             return (True, "명성이 바닥났습니다. 게임오버!")
         if self.cash <= 0 and self.loan >= self.max_loan:
             return (True, "자금이 고갈되었습니다. 게임 오버!")
         return (False, "")
-
+#객체 -> 딕셔너리
     def to_dict(self):
         return {
             "name": self.name,
@@ -85,7 +86,7 @@ class Company:
             "loan": self.loan,
             "loan_interest": self.loan_interest
         }
-
+#딕셔너리 -> 객체 (클래스 메서드)
     @classmethod
     def from_dict(cls, data):
         company = cls(
@@ -104,6 +105,11 @@ class Company:
         company.loan_interest = data["loan_interest"]
 
         return company
+
+#일반 메서드는 객체가 있어야 호출할 수 있다.  from_dict()는 객체를 만들기 위해 호출하는 함수
+#일반 메서드는 "이미 만들어진 회사에게 일을 시키는 것" 회사가 존재해야 호출가능
+#@classmethod는 "회사를 새로 설립하는 공장역할" 회사가 없어도 호출가능함, 호출하면 새 회사를 만들어서 반환
+
 
 # if __name__ == "__main__":
 #     c = Company("테크스타트", "IT", 5000000)
