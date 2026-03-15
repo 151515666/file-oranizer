@@ -71,7 +71,7 @@ class Company:
         if self.cash <= 0 and self.loan >= self.max_loan:
             return (True, "자금이 고갈되었습니다. 게임 오버!")
         return (False, "")
-    
+    #객체 -> 딕셔너리
     def to_dict(self):
         return {
             "name": self.name,
@@ -89,7 +89,7 @@ class Company:
             "loan": self.loan,
             "loan_interest": self.loan_interest
         }
-    
+    #딕셔너리 -> 객체 (클래스 메서드)
     @classmethod
     def from_dict(cls, data):
         company = cls(
@@ -108,3 +108,7 @@ class Company:
         company.loan_interest = data["loan_interest"]
 
         return company
+    
+    #일반 메서드는 객체가 있어야 호출할 수 있다.  from_dict()는 객체를 만들기 위해 호출하는 함수
+    #일반 메서드는 "이미 만들어진 회사에게 일을 시키는 것" 회사가 존재해야 호출가능
+    #@classmethod는 "회사를 새로 설립하는 공장역할" 회사가 없어도 호출가능함, 호출하면 새 회사를 만들어서 반환
