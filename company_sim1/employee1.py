@@ -19,6 +19,7 @@ class Employee:
         self.skill = random.randint(1, 10)
         self.morale = 70
         self.is_striking = False
+        self.experience = 0
 
         # 역할에 맞는 급여 범위에서 랜덤 생성
         min_sal, max_sal = SALARY_RANGE[role]
@@ -60,6 +61,22 @@ class Employee:
             company.reputation -= 10
         return result
 
+    #morale 을 amount 만큼 조정하는거
+    def adjust_morale(self, amount):
+        self.morale += amount
+        if self.morale > 100:
+            self.morale = 100
+        if self.morale < 0:
+            self.morale = 0
+
+    #경력이 쌓이면 능력치 자동 상승
+    def gain_experience(self):
+        self.experience += 1
+        if self.experience % 4 == 0:
+            self.skill += 1
+            if self.skill > 10:
+                self.skill = 10
+
     def to_dict(self):
         return {
             "name": self.name,
@@ -67,7 +84,8 @@ class Employee:
             "skill": self.skill,
             "salary": self.salary,
             "morale": self.morale,
-            "is_striking": self.is_striking
+            "is_striking": self.is_striking,
+            "experience": self.experience
         }
 
     @classmethod
@@ -80,4 +98,5 @@ class Employee:
         employee.salary = data["salary"]
         employee.morale = data["morale"]
         employee.is_striking = data["is_striking"]
+        employee.experience = data["experience"]
         return employee
