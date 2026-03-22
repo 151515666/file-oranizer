@@ -7,6 +7,7 @@ class Company:
         self.start_date = start_date # 게임 시작 날짜
         self.year = self.start_date # 현재 연도
         self.end_date = end_date # 게임 종료 날짜
+    
 
         self.quarter = 1 # 현재 분기
         self.reputation = 50 # 평판 (0~100)
@@ -87,7 +88,10 @@ class Company:
             "employees": [],
             "products": [],
             "loan": self.loan,
-            "loan_interest": self.loan_interest
+            "loan_interest": self.loan_interest,
+            "start_date": self.start_date,
+            "end_date": self.end_date,
+            "year": self.year
         }
     #딕셔너리 -> 객체 (클래스 메서드)
     @classmethod
@@ -95,7 +99,10 @@ class Company:
         company = cls(
             name=data["name"],
             industry=data["industry"],
-            cash=data["cash"]
+            cash=data["cash"],
+            start_date=data["start_date"],
+            end_date=data["end_date"],
+            year=data["year"]     
         )
         company.initial_cash = data["initial_cash"]
         company.max_loan = data["max_loan"]
