@@ -32,7 +32,7 @@ class Product:
         if self.progress >= self.dev_turns:
             self.is_launched = True
 
-    def to_dict(self):
+    def to_dict(self): # 저장
         return {
             "name": self.name,
             "category": self.category,
@@ -44,7 +44,7 @@ class Product:
             "revenue": self.revenue
         }
     @classmethod
-    def from_dict(cls, data):
+    def from_dict(cls, data): # 불러오기
         prod = cls(data["name"], data["category"])
         prod.dev_cost = data["dev_cost"]
         prod.dev_turns = data["dev_turns"]
@@ -53,7 +53,8 @@ class Product:
         prod.is_launched = data["is_launched"]
         prod.revenue = data["revenue"]
         return prod
-    def calculate_revenue(self, employees):
+    
+    def calculate_revenue(self, employees): # 매출 계산 함수
         if not self.is_launched:
             return 0
 

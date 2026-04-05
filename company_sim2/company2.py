@@ -101,8 +101,7 @@ class Company:
             industry=data["industry"],
             cash=data["cash"],
             start_date=data["start_date"],
-            end_date=data["end_date"],
-            year=data["year"]     
+            end_date=data["end_date"]     
         )
         company.initial_cash = data["initial_cash"]
         company.max_loan = data["max_loan"]
@@ -113,6 +112,7 @@ class Company:
         company.quarter = data["quarter"]
         company.loan = data["loan"]
         company.loan_interest = data["loan_interest"]
+        company.year = data["year"]
 
         return company
     
