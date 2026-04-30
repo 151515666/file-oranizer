@@ -1,0 +1,159 @@
+{
+  "company": {
+    "name": "라",
+    "industry": "아아아",
+    "cash": 11000000,
+    "initial_cash": 1000000,
+    "max_loan": 2000000,
+    "cash_history": [
+      1000000,
+      -2000000,
+      -2000000,
+      -2000000,
+      3000000,
+      3000000,
+      3000000,
+      3000000,
+      3000000,
+      3000000,
+      3000000,
+      3000000,
+      3000000,
+      8000000,
+      8000000,
+      10000000,
+      10000000,
+      10000000,
+      7000000,
+      7000000,
+      -1000000,
+      -1000000,
+      1000000,
+      1000000,
+      1000000,
+      -2000000,
+      -2000000,
+      -2000000,
+      -2000000,
+      -2000000,
+      -2000000,
+      3000000,
+      5000000,
+      5000000,
+      5000000,
+      5000000,
+      5000000,
+      5000000,
+      5000000,
+      10000000,
+      7000000,
+      7000000,
+      7000000,
+      7000000,
+      9000000,
+      9000000,
+      14000000,
+      14000000,
+      14000000,
+      14000000,
+      4000000,
+      4000000,
+      4000000,
+      4000000,
+      4000000,
+      9000000,
+      9000000,
+      9000000,
+      9000000,
+      9000000,
+      9000000,
+      6000000,
+      11000000
+    ],
+    "revenue": -8600000,
+    "expenses": 0,
+    "quarter": 63,
+    "reputation": 105,
+    "employees": [],
+    "products": [],
+    "loan": 0,
+    "loan_interest": 0.05
+  },
+  "competitors": [
+    {
+      "name": "삼성전자",
+      "strength": 7,
+      "is_active": true
+    },
+    {
+      "name": "TSMC",
+      "strength": 2,
+      "is_active": true
+    },
+    {
+      "name": "마이크로소프트",
+      "strength": 5,
+      "is_active": true
+    },
+    {
+      "name": "SK하이닉스",
+      "strength": 6,
+      "is_active": true
+    },
+    {
+      "name": "마이크로소프트",
+      "strength": 9,
+      "is_active": true
+    },
+    {
+      "name": "마이크론 테크놀로지",
+      "strength": 6,
+      "is_active": true
+    },
+    {
+      "name": "두산에너빌리티",
+      "strength": 4,
+      "is_active": true
+    },
+    {
+      "name": "한화오션",
+      "strength": 10,
+      "is_active": true
+    },
+    {
+      "name": "한화오션",
+      "strength": 7,
+      "is_active": true
+    },
+    {
+      "name": "알파벳 A",
+      "strength": 2,
+      "is_active": true
+    },
+    {
+      "name": "알파벳 A",
+      "strength": 1,
+      "is_active": true
+    },
+    {
+      "name": "SK하이닉스",
+      "strength": 6,
+      "is_active": true
+    },
+    {
+      "name": "SK하이닉스",
+      "strength": 5,
+      "is_active": true
+    },
+    {
+      "name": "TSMC",
+      "strength": 8,
+      "is_active": true
+    },
+    {
+      "name": "TSMC",
+      "strength": 8,
+      "is_active": true
+    }
+  ]
+}
