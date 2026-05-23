@@ -166,6 +166,7 @@ elif page == "직원 관리":
         with col1:
             if st.button("직원 채용 (랜덤 생성)", use_container_width=True):
                 new_emp = Employee()
+                new_emp.hire_date = f"{c.year}년 Q{c.quarter}"
                 c.hire(new_emp)
                 st.success(f"{new_emp.name} ({new_emp.role}) 채용 완료! 월급: {new_emp.salary:,}만원")
                 st.rerun()

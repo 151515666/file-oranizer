@@ -1,4 +1,3 @@
-# events.py
 import random
 
 EVENTS = [
@@ -89,21 +88,16 @@ EVENTS = [
 
 
 def get_random_events(events, max_count=3):
-    """확률 기반으로 최대 max_count개의 이벤트를 선택해 반환"""
     triggered = []
     for event in events:
         if random.random() < event["probability"]:
             triggered.append(event)
-    
-    # 최대 개수 초과 시 랜덤으로 추려냄
     if len(triggered) > max_count:
         triggered = random.sample(triggered, max_count)
-    
     return triggered
 
 
 def apply_event(event, company):
-    """이벤트 효과를 company 객체에 적용"""
     results = []
     effects = event["effects"]
 
@@ -117,7 +111,7 @@ def apply_event(event, company):
         min_val, max_val = effects["reputation"]
         amount = random.randint(min_val, max_val)
         company.reputation += amount
-        company.reputation = max(0, min(100, company.reputation))  # 0~100 클램핑
+        company.reputation = max(0, min(100, company.reputation))
         results.append(f"평판 {amount:+}")
 
     if "employee_productivity" in effects:
@@ -126,7 +120,7 @@ def apply_event(event, company):
             for emp in company.employees:
                 amount = random.randint(min_val, max_val)
                 emp.productivity += amount
-                emp.productivity = max(0, min(100, emp.productivity))  # 0~100 클램핑
+                emp.productivity = max(0, min(100, emp.productivity))
             results.append(f"직원 생산성 {min_val}~{max_val:+} 변동")
 
     if "product_quality" in effects:
@@ -135,7 +129,7 @@ def apply_event(event, company):
             for prod in company.products:
                 amount = random.randint(min_val, max_val)
                 prod.quality += amount
-                prod.quality = max(0, min(100, prod.quality))  # 0~100 클램핑
+                prod.quality = max(0, min(100, prod.quality))
             results.append(f"상품 품질 {min_val}~{max_val:+} 변동")
 
     return results

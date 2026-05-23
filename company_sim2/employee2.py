@@ -19,30 +19,30 @@ class Employee:
         self.salary = random.randint(min_sal, max_sal)
         self.productivity = random.randint(0, 100)
         self.experience = 0
-    
+        self.hire_date = None  # 채용 시점에 외부에서 설정 (예: "2024년 Q1")
+
     def work(self):
-        # 생산성에 따라 회사 수익에 기여
         self.experience += 1
-        if self.experience % 10 == 0:  # 10 쌓일 때마다
-            # productivity + 5, 단 100 초과 금지
+        if self.experience % 10 == 0:
             self.productivity = min(100, self.productivity + 5)
 
     def to_dict(self):
         return {
             "name": self.name,
-            "salary": self.salary,
             "role": self.role,
+            "salary": self.salary,
             "productivity": self.productivity,
-            "experience": self.experience
+            "experience": self.experience,
+            "hire_date": self.hire_date
         }
-    
+
     @classmethod
     def from_dict(cls, data):
-        emp = cls()   # 일단 랜덤으로 생성
+        emp = cls()
         emp.name = data["name"]
         emp.role = data["role"]
         emp.salary = data["salary"]
         emp.productivity = data["productivity"]
         emp.experience = data["experience"]
+        emp.hire_date = data.get("hire_date", None)
         return emp
-
